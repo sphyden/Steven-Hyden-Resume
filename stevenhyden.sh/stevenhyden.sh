@@ -2,17 +2,20 @@
 
 #Steven Hyden interactive bash resume
 
-PS3='Please enter your choice: '
+PS3=$(echo -e "\nPlease enter your choice: ")
 options=("Introduction" "Contact Details" "Skills" \
          "Training" "Environment Experience" \
-         "Work Experience"  "Quit")
+         "Work Experience" "Entire Resume"  "Quit")
 inc=./text
-dump='less -r'
+dump='less -R -j1'
 
 echo -e "\n"
-echo "Hello! And thank you for taking this script, and my employment into consideration."
+echo -e "			        \033[1;36mSteven Hyden\033[0m"
 echo -e "\n"
-echo "Please choose one of the following options to navigate through my resume"
+echo -e "\033[1mHello!\033[0m And thank you for taking this script, and my employment into consideration."
+echo -e "\n"
+echo -e "\033[4mPlease choose one of the following options to navigate through my resume.\033[0m \n 
+\033[4mAfter selecting an option, and surveying its contents, push 'q' to return to the selection prompt.\033[0m"
 echo -e "\n"
 
 select opt in "${options[@]}"
@@ -35,6 +38,9 @@ do
             ;;
         "Work Experience")
             $inc/experience.sh | $dump
+            ;;
+        "Entire Resume")
+            $inc/entire.sh
             ;;
         "Quit")
             break
