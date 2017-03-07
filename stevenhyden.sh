@@ -24,10 +24,10 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Introduction")
-             echo -e  $(source(1) $d/introtest) | $dump
+             echo -e $(cat $d/introtest) | $dump
             ;;
         "Contact Details")
-             $d/contact.sh | $dump
+             echo -e $(cat $d/contact) | $dump
             ;;
         "Skills")
              $d/skills.sh | $dump
