@@ -6,7 +6,8 @@ PS3=$(echo -e "\nPlease enter your choice: ")
 options=("Introduction" "Contact Details" "Skills" \
          "Training" "Environment Experience" \
          "Work Experience" "Entire Resume"  "Quit")
-inc=./text
+bd=$(dirname "$0")
+d=${bd}/text
 dump='less -R -j1'
 
 echo -e "\n"
@@ -22,25 +23,25 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Introduction")
-             $inc/intro.sh | $dump
+             $d/intro.sh | $dump
             ;;
         "Contact Details")
-             $inc/contact.sh | $dump
+             $d/contact.sh | $dump
             ;;
         "Skills")
-             $inc/skills.sh | $dump
+             $d/skills.sh | $dump
             ;;
         "Training")
-             $inc/training.sh | $dump
+             $d/training.sh | $dump
             ;;
         "Environment Experience")
-            $inc/environment.sh | $dump
+            $d/environment.sh | $dump
             ;;
         "Work Experience")
-            $inc/experience.sh | $dump
+            $d/experience.sh | $dump
             ;;
         "Entire Resume")
-            $inc/entire.sh
+            $d/entire.sh
             ;;
         "Quit")
             break
