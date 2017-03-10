@@ -1,15 +1,13 @@
 #!/bin/bash
-set -x
 #Steven Hyden interactive bash resume
 
-PS3=$(echo -e "\nPlease enter your choice: ")
+PS3="\nPlease enter your choice: "
 options=("Introduction" "Contact Details" "Skills" \
          "Training" "Environment Experience" \
          "Work Experience" "Entire Resume"  "Quit")
 bd=$(dirname "$0")
 d=${bd}/text
 dump='less -R -j1'
-#s=$(source $d/introtest)
 
 echo -e "\n"
 echo -e "			        \033[1;34mSteven Hyden\033[0m"
@@ -24,16 +22,16 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Introduction")
-             echo -e  $(source(1) $d/introtest) | $dump
+	    $d/intro.sh | $dump
             ;;
         "Contact Details")
-             $d/contact.sh | $dump
+            $d/contact.sh | $dump
             ;;
         "Skills")
-             $d/skills.sh | $dump
+            $d/skills.sh | $dump
             ;;
         "Training")
-             $d/training.sh | $dump
+            $d/training.sh | $dump
             ;;
         "Environment Experience")
             $d/environment.sh | $dump
